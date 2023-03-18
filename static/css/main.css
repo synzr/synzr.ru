@@ -4,6 +4,7 @@
   --placeholder-text-color: #959595;
 
   --content-padding-size: 1in;
+  --max-width-text-size: 5in;
 }
 
 body {
@@ -38,4 +39,27 @@ h6 {
 
 main {
   padding: var(--content-padding-size) 0 0 var(--content-padding-size);
+}
+
+section {
+  margin-top: var(--content-padding-size);
+}
+
+section p {
+  max-width: var(--max-width-text-size);
+}
+
+a,
+::selection {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }

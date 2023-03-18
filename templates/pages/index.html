@@ -10,6 +10,62 @@
     Loading the activity information...
   </div>
 </div>
+
+<section id="about-me">
+  <h1>About me</h1>
+
+  <p id="about-me-text-1">
+    I am a young <i>(15 y/o)</i>, but experienced web developer
+    from the heart of ferrous metallurgy in Russia <i>(Magnitogorsk)</i>.
+  </p>
+
+  <p id="about-me-text-2">
+    I love open source technologies and a
+    <a href="{{ config.BREEZEWIKI_INSTANCE_URL }}/dokodemo/wiki/Doko_Demo_Issyo_(Series)">Doko Demo Issyo</a> franchise.
+  </p>
+</section>
+
+<section id="contacts">
+  <h1>Contacts</h1>
+
+  <p id="contacts-social-media">
+    {% if config.MASTODON_URL %}
+    <a href="{{ config.MASTODON_URL }}" rel class="contact">
+      <img src="/static/img/logos/mastodon.svg" alt="Mastodon">
+    </a>
+    {% endif %}
+
+    {% if config.YOUTUBE_URL %}
+    <a href="{{ config.YOUTUBE_URL }}" rel class="contact">
+      <img src="/static/img/logos/youtube.svg" alt="YouTube">
+    </a>
+    {% endif %}
+
+    {% if config.VKONTAKTE_URL %}
+    <a href="{{ config.VKONTAKTE_URL }}" rel class="contact">
+      <img src="/static/img/logos/vkontakte.svg" alt="VK">
+    </a>
+    {% endif %}
+
+    {% if config.VKPLAY_URL %}
+    <a href="{{ config.VKPLAY_URL }}" rel class="contact">
+      <img src="/static/img/logos/vkplay.svg" alt="VK Play">
+    </a>
+    {% endif %}
+
+    {% if config.STEAM_URL %}
+    <a href="{{ config.STEAM_URL }}" rel class="contact">
+      <img src="/static/img/logos/steam.svg" alt="Steam">
+    </a>
+    {% endif %}
+
+    {% if config.TELEGRAM_URL %}
+    <a href="{{ config.TELEGRAM_URL }}" rel class="contact">
+      <img src="/static/img/logos/telegram.svg" alt="Telegram">
+    </a>
+    {% endif %}
+  </p>
+</section>
 {% endblock %}
 
 {% block styles %}

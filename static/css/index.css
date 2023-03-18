@@ -1,10 +1,15 @@
 :root {
   --nickname-font-size: 72px;
   --activity-font-size: 20px;
+
+  --social-media-size: 48px;
+  --social-media-gap: 16px;
 }
 
 #nickname {
+  font-family: 'Fira Sans', sans-serif;
   font-size: var(--nickname-font-size);
+
   user-select: none;
 }
 
@@ -21,4 +26,32 @@
 #activity.loading {
   font-style: italic;
   color: var(--placeholder-text-color);
+}
+
+.contact {
+  background-color: var(--text-color);
+
+  width: var(--social-media-size);
+  height: var(--social-media-size);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.contact img {
+  width: 50%;
+}
+
+.contact:hover {
+  background-color: var(--text-color);
+
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+#contacts-social-media {
+  display: flex;
+  gap: var(--social-media-gap);
 }
