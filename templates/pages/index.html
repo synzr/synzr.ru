@@ -64,7 +64,19 @@
       <img src="/static/img/logos/telegram.svg" alt="Telegram">
     </a>
     {% endif %}
+
+    {% if config.MATRIX_URL %}
+    <a href="{{ config.MATRIX_URL }}" rel class="contact">
+      <img src="/static/img/logos/matrix.svg" alt="Matrix">
+    </a>
+    {% endif %}
   </p>
+  
+  {% if config.EMAIL_ADDRESS %}
+  <p id="contacts-email">
+    E-mail: <a href="mailto:{{ config.EMAIL_ADDRESS }}">{{ config.EMAIL_ADDRESS }}</a>
+  </p>
+  {% endif %}
 </section>
 {% endblock %}
 
