@@ -13,6 +13,12 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+  image-rendering: auto;
+
   width: 100vw;
 }
 
