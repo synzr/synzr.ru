@@ -1,0 +1,11 @@
+.emoji {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emoji[data-emoji-name="fire"] {
+  background-image: url("/static/img/emojis/fire.svg");
+}

@@ -1,0 +1,24 @@
+:root {
+  --nickname-font-size: 72px;
+  --activity-font-size: 20px;
+}
+
+#nickname {
+  font-size: var(--nickname-font-size);
+  user-select: none;
+}
+
+#nickname .emoji {
+  width: var(--nickname-font-size);
+  height: var(--nickname-font-size);
+}
+
+#activity {
+  font-size: var(--activity-font-size);
+  user-select: none;
+}
+
+#activity.loading {
+  font-style: italic;
+  color: var(--placeholder-text-color);
+}

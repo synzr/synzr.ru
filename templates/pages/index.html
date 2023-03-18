@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Hello, world!</h1>
+<div class="hero">
+  <span id="nickname">
+    synzr {% include "emojis/fire.html" %}
+  </span>
+
+  <div id="activity" class="loading">
+    Loading the activity information...
+  </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/css/emoji.css">
+<link rel="stylesheet" href="/static/css/index.css">
 {% endblock %}

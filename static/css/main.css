@@ -1,6 +1,9 @@
 :root {
   --background-color: #121212;
   --text-color: #ededed;
+  --placeholder-text-color: #959595;
+
+  --content-padding-size: 1in;
 }
 
 body {
@@ -9,13 +12,24 @@ body {
 
   background-color: var(--background-color);
   color: var(--text-color);
+
+  width: 100vw;
 }
 
 * {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Fira Sans', sans-serif;
   user-select: none;
+}
+
+main {
+  padding: var(--content-padding-size) 0 0 var(--content-padding-size);
 }
