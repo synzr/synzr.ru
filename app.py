@@ -1,8 +1,5 @@
 from flask import Flask
+import blueprints
 
 app = Flask(__name__)
-
-
-@app.get("/")
-def index():
-    return "Hello, world!"
+app.register_blueprint(blueprints.index)
