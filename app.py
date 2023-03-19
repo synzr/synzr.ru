@@ -4,7 +4,7 @@ from extensions import cache
 import blueprints
 
 app = Flask(__name__)
-app.config.from_pyfile("config.py")
+app.config.from_pyfile("configs/app.py")
 
 cache.init_app(app)
 

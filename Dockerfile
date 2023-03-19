@@ -9,4 +9,4 @@ RUN pip install --no-cache-dir --upgrade gunicorn
 
 COPY . /usr/src/app/
 
-CMD ["gunicorn", "--conf", "deployment/gunicorn_config.py", "--bind", "0.0.0.0:80", "app:app"]
+CMD ["gunicorn", "--conf", "configs/gunicorn.py", "--bind", "0.0.0.0:80", "app:app"]
