@@ -1,1 +1,4 @@
 Flask
+Flask-RESTful
+Flask-Caching
+requests

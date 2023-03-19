@@ -4,6 +4,8 @@
   --placeholder-text-color: #959595;
 
   --content-padding-size: 1in;
+  --section-gap-size: 0.5in;
+
   --max-width-text-size: 5in;
 }
 
@@ -42,7 +44,7 @@ main {
 }
 
 section {
-  margin-top: var(--content-padding-size);
+  margin-top: var(--section-gap-size);
 }
 
 section p {
