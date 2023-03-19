@@ -42,7 +42,7 @@ const supportedActivites = {
 
 const requestActivity = () => {
   activity.classList.add('loading')
-  activity.innerHTML = 'Loading the activity information...'
+  activity.innerHTML = 'Updating the activity information...'
 
   fetch('/api/activity/')
     .then((response) => response.json())
