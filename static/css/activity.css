@@ -1,0 +1,23 @@
+:root {
+  --activity-font-size: 20px;
+}
+
+#activity {
+  font-size: var(--activity-font-size);
+  user-select: none;
+}
+
+#activity.loading {
+  font-style: italic;
+  color: var(--placeholder-text-color);
+}
+
+#activity #icon {
+  width: var(--activity-font-size);
+  height: var(--activity-font-size);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}

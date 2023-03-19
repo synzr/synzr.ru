@@ -30,48 +30,48 @@
 
   <p id="contacts-social-media">
     {% if config.MASTODON_URL %}
-    <a href="{{ config.MASTODON_URL }}" rel class="contact">
+    <a href="{{ config.MASTODON_URL }}" rel="me" class="contact">
       <img src="/static/img/logos/mastodon.svg" alt="Mastodon">
     </a>
     {% endif %}
 
     {% if config.YOUTUBE_URL %}
-    <a href="{{ config.YOUTUBE_URL }}" rel class="contact">
+    <a href="{{ config.YOUTUBE_URL }}" rel="me" class="contact">
       <img src="/static/img/logos/youtube.svg" alt="YouTube">
     </a>
     {% endif %}
 
     {% if config.VKONTAKTE_URL %}
-    <a href="{{ config.VKONTAKTE_URL }}" rel class="contact">
+    <a href="{{ config.VKONTAKTE_URL }}" rel="me" class="contact">
       <img src="/static/img/logos/vkontakte.svg" alt="VK">
     </a>
     {% endif %}
 
     {% if config.VKPLAY_URL %}
-    <a href="{{ config.VKPLAY_URL }}" rel class="contact">
+    <a href="{{ config.VKPLAY_URL }}" rel="me" class="contact">
       <img src="/static/img/logos/vkplay.svg" alt="VK Play">
     </a>
     {% endif %}
 
     {% if config.STEAM_URL %}
-    <a href="{{ config.STEAM_URL }}" rel class="contact">
+    <a href="{{ config.STEAM_URL }}" rel="me" class="contact">
       <img src="/static/img/logos/steam.svg" alt="Steam">
     </a>
     {% endif %}
 
     {% if config.TELEGRAM_URL %}
-    <a href="{{ config.TELEGRAM_URL }}" rel class="contact">
+    <a href="{{ config.TELEGRAM_URL }}" rel="me" class="contact">
       <img src="/static/img/logos/telegram.svg" alt="Telegram">
     </a>
     {% endif %}
 
     {% if config.MATRIX_URL %}
-    <a href="{{ config.MATRIX_URL }}" rel class="contact">
+    <a href="{{ config.MATRIX_URL }}" rel="me" class="contact">
       <img src="/static/img/logos/matrix.svg" alt="Matrix">
     </a>
     {% endif %}
   </p>
-  
+
   {% if config.EMAIL_ADDRESS %}
   <p id="contacts-email">
     E-mail: <a href="mailto:{{ config.EMAIL_ADDRESS }}">{{ config.EMAIL_ADDRESS }}</a>
@@ -83,4 +83,18 @@
 {% block styles %}
 <link rel="stylesheet" href="/static/css/emoji.css">
 <link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/activity.css">
+{% endblock %}
+
+{% block templates %}
+<template id="template-activity-game">
+  <div id="activity">
+    Playing <a id="name">Game Name</a> <span id="icon"></span> using a
+    <span id="platform"></span>
+  </div>
+</template>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/static/js/activity.js"></script>
 {% endblock %}
