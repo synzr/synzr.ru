@@ -1,25 +1,33 @@
+let activity = document.getElementById('activity')
 const templates = {
   activityGame: document.getElementById('template-activity-game')
 }
 
-const handleSteamActivity = (data) => {
-  const steamActivity = templates.activityGame
+const handleGameActivity = (data) => {
+  const gameActivity = templates.activityGame
     .content
     .firstElementChild
     .cloneNode(true)
   
-  const gameName = steamActivity.querySelector('#name')
-  const gameIcon = steamActivity.querySelector('#icon')
-  const gamePlatform = steamActivity.querySelector('#platform')
+  const gameName = gameActivity.querySelector('#name')
+  const gameIcon = gameActivity.querySelector('#icon')
+  const gamePlatform = gameActivity.querySelector('#platform')
 
   gameName.setAttribute('href', data.gameURL)
   gameName.innerHTML = data.gameTitle
 
-  gameIcon.remove()
+  gameIcon.setAttribute('style', `background-image: url("${data.gameIconURL}")`)
+  if (data.platform === 'steam') {
+    gameIcon.remove()
+  }
 
-  gamePlatform.innerHTML = 'Steam'
+  gamePlatform.innerHTML = data.platform === 'steam' ? 'Steam' : 'VK Play'
+  if (data.platform === 'steam' && data.isVKPCloud) {
+    gamePlatform.innerHTML = 'Steam using a VK Play Cloud'
+  }
 
-  document.getElementById('activity').replaceWith(steamActivity)
+  activity.replaceWith(gameActivity)
+  activity = gameActivity
 }
 
 const handleUnknownActivity = (data) => {
@@ -27,11 +35,15 @@ const handleUnknownActivity = (data) => {
 }
 
 const supportedActivites = {
-  'steam': handleSteamActivity,
+  'steam': handleGameActivity,
+  'vkp': handleGameActivity,
   'unknown': handleUnknownActivity
 }
 
 const requestActivity = () => {
+  activity.classList.add('loading')
+  activity.innerHTML = 'Loading the activity information...'
+
   fetch('/api/activity/')
     .then((response) => response.json())
     .then((data) => {
@@ -47,4 +59,5 @@ const requestActivity = () => {
     })
 }
 
+setInterval(requestActivity, 60 * 30 * 1000)
 requestActivity()
