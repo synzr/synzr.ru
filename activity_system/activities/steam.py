@@ -27,19 +27,38 @@ class SteamActivity(BaseActivity):
         with self.session.get(
             "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/",
             params={"key": self.steam_api_key, "steamids": self.steam_id}
-        ) as response:
-            response.raise_for_status()
+        ) as player_response:
+            player_response.raise_for_status()
 
-            result = response.json()["response"]
-            player = result["players"][0]
+            player_result = player_response.json()["response"]
+            player = player_result["players"][0]
 
             if player.get("gameid"):
-                return ActivityResult(
-                    is_in_game=True,
-                    is_vkp_cloud_game=False,
-                    game_url=f"https://store.steampowered.com/app/{player['gameid']}/",
-                    game_icon_url="/static/img/logos/steam.svg", # TODO: Need to get game icon
-                    game_title=player["gameextrainfo"]
-                )
+                with self.session.get(
+                    "https://store.steampowered.com/api/appdetails",
+                    params={"appids": player["gameid"]}
+                ) as game_response:
+                    game_response.raise_for_status()
+
+                    game_result = game_response.json()[str(player["gameid"])]
+                    assert(game_result["success"])
+
+                    game_data = game_result["data"]
+
+                    # The original shop backgrounds are sometimes not saved on the servers.
+                    background = game_data["background_raw"]
+
+                    with self.session.get(background, stream=True) as background_response:
+                        if background_response.status_code != 200:
+                            background = game_data["background"]
+
+                    return ActivityResult(
+                        is_in_game=True,
+                        is_vkp_cloud_game=False,
+                        game_url=f"https://store.steampowered.com/app/{game_data['steam_appid']}/",
+                        game_icon_url="/static/img/logos/steam.svg", # TODO: Need to get game icon
+                        game_title=game_data["name"],
+                        game_wallpaper=background
+                    )
 
             return ActivityResult()

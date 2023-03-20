@@ -2,3 +2,6 @@ Flask
 Flask-RESTful
 Flask-Caching
 requests
+pyseto
+Pillow
+colorthief

@@ -1,1 +1,1 @@
-from .activity import ActivityResource
+from .activity import *

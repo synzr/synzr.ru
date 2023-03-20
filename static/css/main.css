@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background-color: var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
 
   -webkit-font-smoothing: antialiased;
@@ -23,6 +23,7 @@ body {
   image-rendering: auto;
 
   width: 100vw;
+  height: 100vh;
 }
 
 * {

@@ -4,6 +4,7 @@ from flask_restful import Resource
 from activity_system import SteamActivity, VKPlayActivity
 
 from extensions import cache
+from base64 import urlsafe_b64encode
 
 
 class ActivityResource(Resource):
@@ -38,6 +39,7 @@ class ActivityResource(Resource):
                 result["gameURL"] = current_activity.game_url
                 result["gameIconURL"] = current_activity.game_icon_url
                 result["gameTitle"] = current_activity.game_title
+                result["gameWallpaper"] = current_activity.game_wallpaper
                 result["platform"] = "steam"
         
         if self.vkplay_activity:
@@ -56,6 +58,13 @@ class ActivityResource(Resource):
                     result["gameURL"] = current_activity.game_url
                     result["gameIconURL"] = current_activity.game_icon_url
                     result["gameTitle"] = current_activity.game_title
+                    result["gameWallpaper"] = current_activity.game_wallpaper
                     result["platform"] = "vkp"
+        
+        if result.get("gameWallpaper"):
+            result["gameWallpaper"] = {
+                "rawURL": result["gameWallpaper"],
+                "apiURL": f"/api/activity/background-generation/{urlsafe_b64encode(result['gameWallpaper'].encode('ascii')).decode('ascii')}/"
+            }
 
         return result

@@ -8,3 +8,4 @@ class ActivityResult:
     game_url: str = ""
     game_icon_url: str = ""
     game_title: str = ""
+    game_wallpaper: str = ""

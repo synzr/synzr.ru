@@ -28,6 +28,24 @@ const handleGameActivity = (data) => {
 
   activity.replaceWith(gameActivity)
   activity = gameActivity
+
+  let darkestColor = 'rgb(0, 0, 0)'
+  fetch(data.gameWallpaper.apiURL)
+    .then((response) => {
+      console.log(response.headers)
+      darkestColor = response.headers.get('x-darkest-color')
+
+      return response.blob()
+    })
+    .then((blob) => {
+      const backgroundURL = URL.createObjectURL(blob)
+      document.body.setAttribute('style', `
+        background-color: ${darkestColor};
+        background-image: url("${backgroundURL}");
+        background-repeat: no-repeat;
+        background-size: 100vw;
+      `)
+    })
 }
 
 const handleUnknownActivity = (data) => {
@@ -41,6 +59,8 @@ const supportedActivites = {
 }
 
 const requestActivity = () => {
+  document.body.removeAttribute('style')
+
   activity.classList.add('loading')
   activity.innerHTML = 'Updating the activity information...'
 
