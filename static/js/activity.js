@@ -29,16 +29,9 @@ const handleGameActivity = (data) => {
   activity.replaceWith(gameActivity)
   activity = gameActivity
 
-  let darkestColor = 'rgb(0, 0, 0)'
-  fetch(data.gameWallpaper.apiURL)
-    .then((response) => {
-      console.log(response.headers)
-      darkestColor = response.headers.get('x-darkest-color')
-
-      return response.blob()
-    })
-    .then((blob) => {
-      const backgroundURL = URL.createObjectURL(blob)
+  fetch(data.gameBackground.apiURL)
+    .then((response) => response.json())
+    .then(({ backgroundURL, darkestColor }) => {
       document.body.setAttribute('style', `
         background-color: ${darkestColor};
         background-image: url("${backgroundURL}");

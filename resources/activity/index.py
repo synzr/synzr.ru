@@ -39,7 +39,7 @@ class ActivityResource(Resource):
                 result["gameURL"] = current_activity.game_url
                 result["gameIconURL"] = current_activity.game_icon_url
                 result["gameTitle"] = current_activity.game_title
-                result["gameWallpaper"] = current_activity.game_wallpaper
+                result["gameBackground"] = current_activity.game_wallpaper
                 result["platform"] = "steam"
         
         if self.vkplay_activity:
@@ -58,13 +58,17 @@ class ActivityResource(Resource):
                     result["gameURL"] = current_activity.game_url
                     result["gameIconURL"] = current_activity.game_icon_url
                     result["gameTitle"] = current_activity.game_title
-                    result["gameWallpaper"] = current_activity.game_wallpaper
+                    result["gameBackground"] = current_activity.game_wallpaper
                     result["platform"] = "vkp"
         
-        if result.get("gameWallpaper"):
-            result["gameWallpaper"] = {
-                "rawURL": result["gameWallpaper"],
-                "apiURL": f"/api/activity/background-generation/{urlsafe_b64encode(result['gameWallpaper'].encode('ascii')).decode('ascii')}/"
+        if result.get("gameBackground"):
+            b64_wallpaper = urlsafe_b64encode(
+                result["gameBackground"].encode("ascii")
+            ).decode("ascii")
+
+            result["gameBackground"] = {
+                "rawURL": result["gameBackground"],
+                "apiURL": f"/api/activity/background-generation/{b64_wallpaper}/"
             }
 
         return result
