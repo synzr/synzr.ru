@@ -84,6 +84,18 @@
     Source code of this website is avaliable on <a href="https://github.com/synzr/synzr.ru">GitHub</a>.
   </p>
 </section>
+
+{% if config.FEDIRING_ENABLED %}
+<section id="fediring">
+  <h1>Fediring</h1>
+
+  <p id="fediring-links">
+    <a href="https://fediring.net/previous?host={{ host }}">Previous</a>
+    <a href="https://fediring.net/">I'm feeling lucky</a>
+    <a href="https://fediring.net/next?host={{ host }}">Next</a>
+  </p>
+</section>
+{% endif %}
 {% endblock %}
 
 {% block styles %}
