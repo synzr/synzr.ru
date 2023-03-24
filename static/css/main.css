@@ -3,10 +3,23 @@
   --text-color: #ededed;
   --placeholder-text-color: #959595;
 
-  --content-padding-size: 1in;
+  --content-padding-size: 0.75in;
   --section-gap-size: 0.5in;
 
   --max-width-text-size: 5in;
+}
+
+@media (max-width: 1080px) {
+  :root {
+    --content-padding-size: 0.5in;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --content-padding-size: 0.25in;
+    --max-width-text-size: 4.4in;
+  }
 }
 
 body {

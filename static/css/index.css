@@ -17,6 +17,17 @@
   height: var(--nickname-font-size);
 }
 
+.contact-wrapper {
+  display: inline-block;
+  margin-right: var(--social-media-gap);
+}
+
+@media (max-width: 500px) {
+  .contact-wrapper {
+    margin-bottom: var(--social-media-gap);
+  }
+}
+
 .contact {
   background-color: var(--text-color);
 
@@ -40,11 +51,6 @@
 
   -webkit-filter: invert(100%);
   filter: invert(100%);
-}
-
-#contacts-social-media {
-  display: flex;
-  gap: var(--social-media-gap);
 }
 
 #fediring-links {
