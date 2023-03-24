@@ -46,3 +46,12 @@
   display: flex;
   gap: var(--social-media-gap);
 }
+
+#fediring-links {
+  display: flex;
+  gap: var(--social-media-gap);
+}
+
+#fediring-links a {
+  padding: 10px;
+}
