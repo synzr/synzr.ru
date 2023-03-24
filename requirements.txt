@@ -3,6 +3,5 @@ Flask-RESTful
 Flask-Caching
 Flask-Minify
 requests
-pyseto
 Pillow
 colorthief
