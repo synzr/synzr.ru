@@ -22,7 +22,7 @@
 
   gap: var(--social-media-gap);
   grid-template-columns:
-    auto auto auto auto auto auto;
+    auto auto auto auto auto;
   
   width: max-content;
 }
