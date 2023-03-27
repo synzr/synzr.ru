@@ -54,7 +54,11 @@ h6 {
 }
 
 main {
-  padding: var(--content-padding-size) 0 0 var(--content-padding-size);
+  padding:
+    var(--content-padding-size)
+    0
+    var(--content-padding-size)
+    var(--content-padding-size);
 }
 
 section {
