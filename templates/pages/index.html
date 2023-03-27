@@ -25,61 +25,91 @@
   </p>
 </section>
 
+{% if config.SELFHOSTED_ENABLED %}
+<section id="self-hosted">
+  <h1>Self-hosted services</h1>
+
+  <p id="self-hosted-services">
+    {% if config.SELFHOSTED_NITTER_URL %}
+    <div class="icon-wrapper">
+      <a href="{{ config.SELFHOSTED_NITTER_URL }}" class="icon">
+        <img src="/static/img/logos/nitter.png" alt="Nitter">
+      </a>
+    </div>
+    {% endif %}
+
+    {% if config.SELFHOSTED_BREEZEWIKI_URL %}
+    <div class="icon-wrapper">
+      <a href="{{ config.SELFHOSTED_BREEZEWIKI_URL }}" class="icon">
+        <img src="/static/img/logos/breezewiki.svg" alt="BreezeWiki">
+      </a>
+    </div>
+    {% endif %}
+  </p>
+
+  {% if config.SELFHOSTED_NOTE_ABOUT_EU_LOCATION %}
+  <p>
+    <b>Note:</b> The server of all these self-services is located in the Netherlands.
+  </p>
+  {% endif %}
+</section>
+{% endif %}
+
 <section id="contacts">
   <h1>Contacts</h1>
 
   <p id="contacts-social-media">
     {% if config.MASTODON_URL %}
-    <div class="contact-wrapper">
-      <a href="{{ config.MASTODON_URL }}" rel="me" class="contact">
+    <div class="icon-wrapper">
+      <a href="{{ config.MASTODON_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/mastodon.svg" alt="Mastodon">
       </a>
     </div>
     {% endif %}
 
     {% if config.YOUTUBE_URL %}
-    <div class="contact-wrapper">
-      <a href="{{ config.YOUTUBE_URL }}" rel="me" class="contact">
+    <div class="icon-wrapper">
+      <a href="{{ config.YOUTUBE_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/youtube.svg" alt="YouTube">
       </a>
     </div>
     {% endif %}
 
     {% if config.VKONTAKTE_URL %}
-    <div class="contact-wrapper">
-      <a href="{{ config.VKONTAKTE_URL }}" rel="me" class="contact">
+    <div class="icon-wrapper">
+      <a href="{{ config.VKONTAKTE_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/vkontakte.svg" alt="VK">
       </a>
     </div>
     {% endif %}
 
     {% if config.VKPLAY_URL %}
-    <div class="contact-wrapper">
-      <a href="{{ config.VKPLAY_URL }}" rel="me" class="contact">
+    <div class="icon-wrapper">
+      <a href="{{ config.VKPLAY_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/vkplay.svg" alt="VK Play">
       </a>
     </div>
     {% endif %}
 
     {% if config.STEAM_URL %}
-    <div class="contact-wrapper">
-      <a href="{{ config.STEAM_URL }}" rel="me" class="contact">
+    <div class="icon-wrapper">
+      <a href="{{ config.STEAM_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/steam.svg" alt="Steam">
       </a>
     </div>
     {% endif %}
 
     {% if config.TELEGRAM_URL %}
-    <div class="contact-wrapper">
-      <a href="{{ config.TELEGRAM_URL }}" rel="me" class="contact">
+    <div class="icon-wrapper">
+      <a href="{{ config.TELEGRAM_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/telegram.svg" alt="Telegram">
       </a>
     </div>
     {% endif %}
 
     {% if config.MATRIX_URL %}
-    <div class="contact-wrapper">
-      <a href="{{ config.MATRIX_URL }}" rel="me" class="contact">
+    <div class="icon-wrapper">
+      <a href="{{ config.MATRIX_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/matrix.svg" alt="Matrix">
       </a>
     </div>

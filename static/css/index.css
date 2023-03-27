@@ -17,18 +17,18 @@
   height: var(--nickname-font-size);
 }
 
-.contact-wrapper {
+.icon-wrapper {
   display: inline-block;
   margin-right: var(--social-media-gap);
 }
 
 @media (max-width: 500px) {
-  .contact-wrapper {
+  .icon-wrapper {
     margin-bottom: var(--social-media-gap);
   }
 }
 
-.contact {
+.icon {
   background-color: var(--text-color);
 
   width: var(--social-media-size);
@@ -42,11 +42,11 @@
   user-select: none;
 }
 
-.contact img {
+.icon img {
   width: 50%;
 }
 
-.contact:hover {
+.icon:hover {
   background-color: var(--text-color);
 
   -webkit-filter: invert(100%);
