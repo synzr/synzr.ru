@@ -17,15 +17,18 @@
   height: var(--nickname-font-size);
 }
 
-.icon-wrapper {
-  display: inline-block;
-  margin-right: var(--social-media-gap);
+.icon-holder {
+  display: grid;
+
+  gap: var(--social-media-gap);
+  grid-template-columns:
+    auto auto auto auto auto auto;
+  
+  width: max-content;
 }
 
-@media (max-width: 500px) {
-  .icon-wrapper {
-    margin-bottom: var(--social-media-gap);
-  }
+.icon-wrapper {
+  display: inline-block;
 }
 
 .icon {

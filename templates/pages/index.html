@@ -21,7 +21,9 @@
 
   <p id="about-me-text-2">
     I love open source technologies and a
-    <a href="{{ config.BREEZEWIKI_INSTANCE_URL }}/dokodemo/wiki/Doko_Demo_Issyo_(Series)">Doko Demo Issyo</a> franchise.
+    <a
+      href="{{ config.BREEZEWIKI_INSTANCE_URL if not config.SELFHOSTED_BREEZEWIKI_URL else config.SELFHOSTED_BREEZEWIKI_URL }}/dokodemo/wiki/Doko_Demo_Issyo_(Series)"
+    >Doko Demo Issyo</a> franchise.
   </p>
 </section>
 
@@ -29,21 +31,21 @@
 <section id="self-hosted">
   <h1>Self-hosted services</h1>
 
-  <p id="self-hosted-services">
+  <p id="self-hosted-services" class="icon-holder">
     {% if config.SELFHOSTED_NITTER_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.SELFHOSTED_NITTER_URL }}" class="icon">
         <img src="/static/img/logos/nitter.png" alt="Nitter">
       </a>
-    </div>
+    </span>
     {% endif %}
 
     {% if config.SELFHOSTED_BREEZEWIKI_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.SELFHOSTED_BREEZEWIKI_URL }}" class="icon">
         <img src="/static/img/logos/breezewiki.svg" alt="BreezeWiki">
       </a>
-    </div>
+    </span>
     {% endif %}
   </p>
 
@@ -58,61 +60,61 @@
 <section id="contacts">
   <h1>Contacts</h1>
 
-  <p id="contacts-social-media">
+  <p id="contacts-social-media" class="icon-holder">
     {% if config.MASTODON_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.MASTODON_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/mastodon.svg" alt="Mastodon">
       </a>
-    </div>
+    </span>
     {% endif %}
 
     {% if config.YOUTUBE_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.YOUTUBE_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/youtube.svg" alt="YouTube">
       </a>
-    </div>
+    </span>
     {% endif %}
 
     {% if config.VKONTAKTE_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.VKONTAKTE_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/vkontakte.svg" alt="VK">
       </a>
-    </div>
+    </span>
     {% endif %}
 
     {% if config.VKPLAY_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.VKPLAY_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/vkplay.svg" alt="VK Play">
       </a>
-    </div>
+    </span>
     {% endif %}
 
     {% if config.STEAM_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.STEAM_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/steam.svg" alt="Steam">
       </a>
-    </div>
+    </span>
     {% endif %}
 
     {% if config.TELEGRAM_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.TELEGRAM_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/telegram.svg" alt="Telegram">
       </a>
-    </div>
+    </span>
     {% endif %}
 
     {% if config.MATRIX_URL %}
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
       <a href="{{ config.MATRIX_URL }}" rel="me" class="icon">
         <img src="/static/img/logos/matrix.svg" alt="Matrix">
       </a>
-    </div>
+    </span>
     {% endif %}
   </p>
 
