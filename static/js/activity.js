@@ -22,8 +22,13 @@ const handleGameActivity = (data) => {
   }
 
   gamePlatform.innerHTML = data.platform === 'steam' ? 'Steam' : 'VK Play'
+  
   if (data.platform === 'steam' && data.isVKPCloud) {
     gamePlatform.innerHTML = 'Steam using a VK Play Cloud'
+  }
+
+  if (data.gameTitle === 'Changed') {
+    gamePlatform.innerHTML += ". Yes, he's <b>insane</b>."
   }
 
   activity.replaceWith(gameActivity)
